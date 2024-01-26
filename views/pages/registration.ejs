@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body>
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+<main class="container-fluid">
+    <div class="row my-4 py-2">
+        <div class="col">
+            <center><h1 style="color: white; border: 3px solid whitesmoke; background-color: black;">Crate user: </h1></center>
+        </div>
+        
+      </div>
+      </div>
+      
+      <div class="row">
+        
+        <div class="col md 8">
+            <div class="jumbotron">
+               
+              <form id= "userForm" method="post" action="/users/new">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label" >First name and Second name:</label>
+                      <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" name="name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Student ID:</label>
+                      <input type="text" class="form-control" id="exampleInputStudId" name = "stud_id">
+                    </div>
+                    <% if (message == "User was successfully created!") { %>
+                      <div class="alert alert-success">
+                          <%= message %>
+                      </div>
+                  <% } %> 
+                  <% if (message == "User wasn't created") { %>
+                    <div class="alert alert-danger">
+                        <%= message %>
+                        <%= key %> field is missing!
+                    </div>
+                <% } %> 
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                    
+                  </form>
+            </div>
+        </div>
+    </div>
+  </main>
+</body>
+</html>

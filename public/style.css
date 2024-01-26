@@ -1,0 +1,32 @@
+body {
+    background-image:url('/media/background.gif');
+    background-size:100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    width:100%;
+}
+h2 {
+    font-size: calc(18px + 0.390625vw);
+}
+.jumbotron {
+    background-color: black;
+    color: white;;
+    border: 5px solid whitesmoke;
+}
+#nav {
+    opacity: 0.95;
+}
+.col-md-3 {
+    transition: .3s;
+}
+.btn:hover{
+    transform: scale(1.05);
+    transition: all 0.3s;
+}
+
+.col-md-3:hover{
+    transform: scale(1.05);
+    transition: all 0.3s;
+}
+

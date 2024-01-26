@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<title>Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="/style.css">
+
+<script>
+function returnUser() {
+    var form = document.querySelector('.form-inline');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var id = document.getElementById('search').value;
+        var url = "http://localhost:3000/users/" + id;
+        window.open(url, "_self"); 
+        document.getElementById('search').value = ""; // clear the input field
+    });
+}
+  
+function createUser() {
+          var url = "http://localhost:3000/users/new";
+          window.open(url, "_self"); 
+}
+  </script>

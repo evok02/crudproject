@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body>
+  <header>
+    <%- include('../partials/header'); %>
+  </header> 
+
+
+    <main class="container">
+      <div class="container-md">
+        <% if (message == "User was successfully updated!") { %>
+          <div class="alert alert-success">
+            <%= message %>
+          </div>
+        <% } %> 
+        <% if (message == "User wasn't updated") { %>
+          <div class="alert alert-danger">
+              <%= message %>
+              <%= key %> field is missing!
+          </div>
+      <% } %> 
+      </div>
+      <div class="row">
+          <div class="col-md-8 my-4">
+            
+              <div class="jumbotron"> 
+                <form action="/users/<%= user.id %>" method="POST">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label" >First name and Second name:</label>
+                    <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" name="name" value="<%= user.name %>">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label" >Student ID:</label>
+                    <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" name="stud_id" value="<%= user.stud_id %>">
+                  </div>
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                      
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      
+                    </div>
+                  </form>
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                      <form action="/users/<%= user.id %>/delete" method="POST">
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-4 my-4">
+              <div class="jumbotron">
+                <% var photo = "/media/" + user.photo %>
+                <img src="<%= photo %>" style="width:  100%; border-radius: 5px;" alt="Photo">
+              </div>
+
+            </div>
+          </div>
+      </div>
+
+
+
+
+</main>
+</body>
+</html>

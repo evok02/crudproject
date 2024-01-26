@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+      </header>
+
+<main class="container-fluid">
+    <div class="container">
+        <% if (message == "User was successfully updated!") { %>
+            <div class="alert alert-success">
+              <%= message %>
+            </div>
+          <% } %> 
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-3 my-4">
+            <div class="jumbotron">
+                <% let photo = "/media/" + user.photo %>
+                <img src="<%= photo %>" style="width: 100%; border-radius: 5px;" alt="Photo">
+                <h2><%= user.name %></h2>
+                <p><b>ID: </b><%= user.stud_id %></p>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <form action="/users/<%= user.id%>/edit " method="GET">
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                      </form>
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                        <form action="/users/<%= user.id %>/delete" method="POST">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>

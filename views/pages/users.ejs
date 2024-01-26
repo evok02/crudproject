@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body>
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+<main class="container-fluid">
+    <div class="row my-4 py-2">
+        <div class="col">
+            <center><h1 style="color: white; border: 3px solid whitesmoke; background-color: black;">Users: </h1></center>
+        </div>
+    </div>
+    <div class="container">
+      <% if (message == "User was successfully deleted!") { %>
+        <div class="alert alert-success">
+          <%= message %>
+        </div>
+      <% } %> 
+      <% if (message == `No user found with this ID`) { %>
+        <div class="alert alert-danger">
+          <%= message %>
+        </div>
+      <% } %> 
+    </div>
+    <div class="row">
+      <%for (let i = 0; i < users.length; i++) {%>
+          <div class="col-md-3">
+            <a href="/users/<%= users[i].id %>" style="color: inherit; text-decoration: none;">
+              <div class="jumbotron" id = "<%= users[i].id %>">
+                <% let photo = "/media/" + users[i].photo %>
+                <img src="<%= photo %>" style="width: 95%; border-radius: 5px;" alt="Photo">
+                <h2><%= users[i].name %></h2>
+                <p><b>ID: </b><%= users[i].stud_id %></p>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                  <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <form action="/users/<%= users[i].id%>/edit " method="GET">
+                      <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                  </div>
+                  <div class="btn-group mr-2" role="group" aria-label="Second group">
+                    <form action="/users/<%= users[i].id %>/delete" method="POST">
+                      <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          
+      <%}%>
+    
+      <div class="col-md-3">
+        <a href="/users/new" style="color: inherit; text-decoration: none;">
+          <div class="jumbotron">
+            <img src="/media/plus-icon.png" style="width: 95%; border-radius: 5px;" alt="Photo">
+            <h2>Username:</h2>
+            <p><b>ID:</p>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-success" onclick="event.stopPropagation(); window.location.href='/users/new'">Create new User</button>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+  </div>
+
+</main>
+</body>
+</html>
