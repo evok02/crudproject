@@ -12,9 +12,8 @@ You need to have Node.js and npm (Node Package Manager) installed on your machin
 
 ### Installing
 
-1. Clone the repository: `git clone https://github.com/yourusername/your-repo-name.git`
-2. Navigate into the project directory: `cd your-repo-name`
-3. Install the dependencies: `npm install`
+1. Clone the repository: `git clone https://github.com/evok02/crudproject.git`
+2. Install the dependencies: `npm install`
 
 ## Running the Application
 
